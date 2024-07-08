@@ -1,0 +1,22 @@
+
+    <div id="main"><img src="assets/wallpaper.jpg" alt="Descripción de la imagen"></div>
+    <div id="chat_container">
+        <div id="chatbox">
+            
+            <div id="chat_head">
+                <img src="assets/tebi.png" alt="Descripción de la imagen">
+                <span>TebiAssistant</span>
+            </div>
+
+            <div id="messages" #chatContainer>
+                <div *ngFor="let message of messages" class="message" [ngClass]="{'user_message': message.sender === 'user', 'bot_message': message.sender === 'server'}">
+                <div>{{ message.content }}</div>
+                </div>
+            </div>
+            <div id="input_area">
+                <input type="text" id="user_input" [(ngModel)]="userMessage" (keyup.enter)="sendPostRequest()" placeholder="Escribe tu mensaje">
+                <button id="send_btn" (click)="sendPostRequest()">Enviar</button>
+            </div>
+        </div>    
+    </div>    
+   
